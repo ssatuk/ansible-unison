@@ -6,7 +6,11 @@ root = {{ item.src }}
 root = {{ item.dest }}
 
 # If you want one-way mirroring from one replica to the other, specify the source replica using "force" as follows.
-# force = /home/alice/sync_folder
+force = {{ item.src }}
+
+# If you want to prevent deletes
+nodeletion = {{ item.src }}
+nodeletion = {{ item.dest }}
 
 # If you want Unison to run without any user input, try "batch" mode.
 batch = {{ item.batch | default(true) | to_nice_json }}
